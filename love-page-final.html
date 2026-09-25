@@ -260,7 +260,7 @@
             </div>
           </article>
         </div>
-        <div id="memoryResult" class="mt-7 hidden overflow-hidden rounded-2xl border border-rose-200 bg-rose-50/80" aria-live="polite">
+        <div id="memoryResult" class="mt-7 hidden mb-[45vh] scroll-mt-24 overflow-hidden rounded-2xl border border-rose-200 bg-rose-50/80 shadow-lg shadow-rose-100/60 sm:mb-0" tabindex="-1" aria-live="polite">
           <div class="grid items-center md:grid-cols-[220px_1fr]">
             <div id="memoryResultImages" class="grid h-44 grid-cols-2 gap-1 overflow-hidden md:h-full" aria-label="صور الذكرى"></div>
             <div class="p-5 text-center md:p-7 md:text-right">
@@ -419,6 +419,10 @@
         memoryResultText.textContent = message[0];
         memoryResultImages.innerHTML = message[1].map((image) => `<img class="h-full min-w-0 w-full object-cover" src="${image}" alt="صورة من ذكرياتنا" loading="lazy">`).join("");
         memoryResult.classList.remove("hidden");
+        requestAnimationFrame(() => {
+          const resultTop = memoryResult.getBoundingClientRect().top + window.scrollY - 96;
+          window.scrollTo({ top: Math.max(0, resultTop), behavior: "smooth" });
+        });
       });
     });
 
