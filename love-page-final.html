@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff7f8">
+  <meta name="description" content="حكاية حب جميلة مخصصة لشيرين">
+  <title>قصة حبنا | شيرين</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #43333a;
+      --rose: #d94667;
+      --rose-dark: #a9284b;
+      --cream: #fffaf7;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 8%, rgba(251, 207, 232, .28), transparent 26rem),
+        radial-gradient(circle at 90% 20%, rgba(254, 215, 170, .24), transparent 24rem),
+        var(--cream);
+      font-family: "Cairo", sans-serif;
+    }
+
+    .serif-text { font-family: "Amiri", serif; }
+    .glass-card {
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid rgba(255, 255, 255, .8);
+      box-shadow: 0 18px 60px rgba(148, 58, 86, .09);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-grid {
+      background-image: linear-gradient(rgba(217, 70, 103, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217, 70, 103, .05) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .floating-heart {
+      position: absolute;
+      color: rgba(217, 70, 103, .22);
+      animation: float 7s ease-in-out infinite;
+      user-select: none;
+    }
+    .floating-heart:nth-child(2) { animation-delay: -2s; }
+    .floating-heart:nth-child(3) { animation-delay: -4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-8deg); }
+      50% { transform: translateY(-18px) rotate(8deg); }
+    }
+
+    .photo-card { transition: transform .3s ease, box-shadow .3s ease; }
+    .photo-card:hover {
+      transform: translateY(-8px) rotate(0deg);
+      box-shadow: 0 22px 40px rgba(148, 58, 86, .16);
+    }
+
+    .letter-paper {
+      background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,255,255,.78));
+      background-color: #fff;
+    }
+
+    .spotify-player {
+      background: rgba(24, 24, 24, .94);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .2);
+      backdrop-filter: blur(16px);
+    }
+
+    .progress-range {
+      accent-color: #1ed760;
+      cursor: pointer;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="selection:bg-rose-200 selection:text-rose-950">
+  <header class="fixed inset-x-0 top-0 z-50 p-3 sm:p-5">
+    <nav class="glass-card mx-auto flex max-w-5xl items-center justify-between gap-3 rounded-2xl px-4 py-3 sm:rounded-full sm:px-6" aria-label="التنقل الرئيسي">
+      <a href="#home" class="font-bold text-rose-700 transition hover:text-rose-900">شيرين <span aria-hidden="true">❤️</span></a>
+      <div class="flex items-center gap-2">
+        <a href="#letter" class="hidden text-sm font-semibold text-gray-600 transition hover:text-rose-700 sm:inline">رسالة ليكي</a>
+        <button id="musicToggle" type="button" class="rounded-full bg-[#1ed760] px-3 py-2 text-xs font-bold text-black shadow-md transition hover:bg-[#1fdf64] focus:outline-none focus:ring-4 focus:ring-green-200 sm:px-4 sm:text-sm" aria-pressed="false">
+          <span aria-hidden="true">▶</span> تشغيل
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <audio id="bgMusic" loop preload="none">
+    <source src="song-742-942-final.mp3" type="audio/mpeg">
+  </audio>
+
+  <aside id="spotifyPlayer" class="spotify-player fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-xl rounded-2xl p-3 text-white sm:bottom-6 sm:left-auto sm:right-6" aria-label="مشغل الموسيقى">
+    <div class="flex items-center gap-3">
+      <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-green-400 to-green-700 text-2xl shadow-inner" aria-hidden="true">♫</div>
+      <div class="min-w-0 flex-1">
+        <p class="truncate text-sm font-bold">قال إيه بيسألوني</p>
+        <p class="mt-0.5 text-xs text-gray-400">شيرين • ذكرياتنا</p>
+      </div>
+      <button id="playerToggle" type="button" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-black transition hover:scale-105 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-400" aria-label="تشغيل الموسيقى" aria-pressed="false">
+        <span aria-hidden="true">▶</span>
+      </button>
+      <button id="playerClose" type="button" class="p-1 text-gray-400 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-green-400" aria-label="إخفاء مشغل الموسيقى">×</button>
+    </div>
+    <div class="mt-2 flex items-center gap-2 text-[10px] text-gray-400">
+      <span id="currentTime">0:00</span>
+      <input id="progressBar" class="progress-range h-1 w-full" type="range" min="0" max="100" value="0" step="0.1" aria-label="تقدم الموسيقى">
+      <span id="duration">0:00</span>
+    </div>
+  </aside>
+
+  <main>
+    <section id="home" class="relative flex min-h-screen items-center justify-center overflow-hidden px-5 pb-16 pt-32 text-center">
+      <div class="hero-grid absolute inset-0" aria-hidden="true"></div>
+      <span class="floating-heart right-[12%] top-36 text-3xl" aria-hidden="true">♡</span>
+      <span class="floating-heart left-[15%] top-1/3 text-5xl" aria-hidden="true">♥</span>
+      <span class="floating-heart bottom-28 right-[24%] text-2xl" aria-hidden="true">♡</span>
+
+      <div class="relative z-10 mx-auto max-w-3xl">
+        <span class="mb-5 inline-flex items-center gap-2 rounded-full border border-rose-200 bg-white/70 px-4 py-2 text-xs font-bold tracking-wide text-rose-600 shadow-sm">
+          <span aria-hidden="true">✦</span> حكايتنا الجميلة <span aria-hidden="true">✦</span>
+        </span>
+        <h1 class="text-4xl font-bold leading-tight text-gray-800 sm:text-6xl">أجمل حاجة حصلتلي في حياتي <span class="text-rose-500" aria-hidden="true">❤️</span></h1>
+        <p class="serif-text mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-gray-600 sm:text-2xl">
+          "من أول لحظة حسيت إن في حاجة مختلفة، ومن يومها وإنتِ بقيتي جزء من أيامي وقلبي."
+        </p>
+
+        <div class="mx-auto mt-10 max-w-xl rounded-3xl border border-rose-100 bg-white/75 p-5 shadow-xl shadow-rose-100/40 backdrop-blur sm:p-7">
+          <div class="grid grid-cols-2 items-center gap-4 sm:grid-cols-[1fr_auto_1fr]">
+            <div>
+              <strong id="daysCount" class="block text-3xl font-bold text-rose-600 sm:text-4xl">--</strong>
+              <span class="text-xs text-gray-500">يوم مع بعض</span>
+            </div>
+            <div class="hidden h-12 w-px bg-rose-200 sm:block"></div>
+            <div>
+              <span class="block text-sm font-bold text-gray-700">تاريخ أول لقاء</span>
+              <time datetime="2023-08-23" class="text-xs text-gray-500">23 أغسطس 2023</time>
+            </div>
+          </div>
+        </div>
+
+        <a href="#story" class="mt-10 inline-flex items-center gap-2 text-sm font-bold text-rose-600 transition hover:text-rose-800">
+          اكتشفي حكايتنا <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="story" class="mx-auto max-w-4xl px-5 py-20">
+      <div class="mb-10 text-center">
+        <span class="text-sm font-bold text-rose-500">الفصل الأول</span>
+        <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">بداية الحكاية <span aria-hidden="true">✨</span></h2>
+      </div>
+      <article class="glass-card relative overflow-hidden rounded-3xl p-7 text-center sm:p-12">
+        <div class="absolute -left-8 -top-8 text-8xl text-rose-100" aria-hidden="true">“</div>
+        <time datetime="2023-08-23" class="relative inline-block rounded-full bg-rose-100 px-4 py-2 text-sm font-bold text-rose-700">23 / 8 / 2023</time>
+        <p class="serif-text relative mt-6 text-xl leading-loose text-gray-700">
+          أول يوم لينا كان بداية لحكاية مكنتش أعرف وقتها إنها هتبقى أجمل حاجة حصلتلي. من أول لحظة حسيت إن في حاجة مختلفة، ومن يومها وإنتِ بقيتي جزء من أيامي وقلبي.
+        </p>
+      </article>
+    </section>
+
+    <section class="mx-auto max-w-5xl px-5 py-10">
+      <div class="mb-10 text-center">
+        <span class="text-sm font-bold text-rose-500">لحظات لا تُنسى</span>
+        <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">ذكرياتنا سوا <span aria-hidden="true">📸</span></h2>
+        <p class="mt-3 text-gray-500">لحظات صغيرة.. بس حفرت مكانها جوة القلب</p>
+      </div>
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <figure class="photo-card rotate-[-2deg] rounded-2xl bg-white p-4 shadow-lg">
+          <div class="h-72 overflow-hidden rounded-xl bg-rose-100">
+            <img src="memory-1.jpeg" alt="ذكرى أيدينا معًا في موعد جميل" class="h-full w-full object-cover" loading="lazy">
+          </div>
+          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">إيد في إيد ❤️</figcaption>
+        </figure>
+        <figure class="photo-card rotate-[2deg] rounded-2xl bg-white p-4 shadow-lg">
+          <div class="h-72 overflow-hidden rounded-xl bg-rose-100">
+            <img src="memory-2.jpeg" alt="ذكرى صورة جميلة لنا أمام المرآة" class="h-full w-full object-cover" loading="lazy">
+          </div>
+          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">أجمل صورة ✨</figcaption>
+        </figure>
+        <figure class="photo-card rotate-[-1deg] rounded-2xl bg-white p-4 shadow-lg">
+          <div class="h-72 overflow-hidden rounded-xl bg-rose-100">
+            <img src="memory-3.jpeg" alt="ذكرى صورة قريبة لنا معًا" class="h-full w-full object-cover" loading="lazy">
+          </div>
+          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">ضحكتنا سوا 🌹</figcaption>
+        </figure>
+        <figure class="photo-card rotate-[1deg] rounded-2xl bg-white p-4 shadow-lg sm:col-span-2 md:col-span-1">
+          <div class="h-72 overflow-hidden rounded-xl bg-rose-100">
+            <img src="memory-4.jpeg" alt="ذكرى لحظة دافئة ومميزة" class="h-full w-full object-cover" loading="lazy">
+          </div>
+          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">لحظة من القلب 💕</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="letter" class="mx-auto max-w-3xl px-5 py-20">
+      <article class="letter-paper rounded-3xl border border-rose-100 p-7 shadow-2xl shadow-rose-100/50 sm:p-12">
+        <header class="border-b border-rose-100 pb-7 text-center">
+          <span class="text-3xl" aria-hidden="true">💌</span>
+          <h2 class="mt-2 text-3xl font-bold text-rose-600">إلى شيرين ❤️</h2>
+          <p class="mt-1 text-xs text-gray-400">رسالة من القلب</p>
+        </header>
+        <div class="serif-text space-y-5 pt-8 text-right text-lg leading-loose text-gray-700">
+          <p>مش عارف أبدأ كلامي منين، لأن مهما كتبت ومهما قلت، مش هقدر أوصفلك قد إيه أنا بعشقك وقد إيه وجودك في حياتي فرق معايا. إنتِ مش مجرد حد بحبه، إنتِ الشخص اللي بقيت أشوف معاه الدنيا بشكل مختلف، واللي وجوده لوحده قادر يخلّي يومي أحلى.</p>
+          <p>من أول ما دخلتي حياتي وأنا حاسس إن ربنا رزقني بحاجة جميلة أوي، وكل يوم بيعدي وأنا معاكي بيأكدلي أكتر إنك من أجمل الحاجات اللي حصلتلي. بحب تفاصيلك كلها، ضحكتك، كلامك، طريقتك، زعلك، فرحتك، وحتى الحاجات الصغيرة اللي يمكن إنتِ نفسك مش واخدة بالك منها.</p>
+          <p>أنا بعشقك بطريقة يمكن الكلام نفسه يعجز يوصفها. بعشق وجودك، وبحب إني أعرف إن في شخص في الدنيا أقدر أحكيله كل حاجة، وأفرح معاه، وأزعل معاه، وألاقيه قريب من قلبي مهما حصل.</p>
+          <p>ولو سألتيني إيه أكتر حاجة نفسي فيها؟ هقولك إني نفسي أفضل جنبك، ونفضل نكبر سوا، ونعيش أيام كتير أكتر من اللي فاتت، ونفضل نفتكر كل لحظة بدأت بينا ونضحك ونقول: “بصّي إحنا وصلنا لفين.”</p>
+          <p>يمكن أوقات مبعرفش أعبّرلك عن كل اللي جوايا، ويمكن ساعات الشغل والضغط والدنيا تخليني مقصر من غير ما أقصد، بس صدقيني عمر ده ما كان معناه إن حبي ليكي قل. بالعكس، إنتِ دايمًا في قلبي، ومكانك عندي عمره ما اتغير.</p>
+          <p>أنا مش بحبك عشان إنتِ كاملة، أنا بحبك بكل تفاصيلك، وبحب إنك إنتِ… شيرين اللي عرفتها، وقربت منها، واتعلقت بيها، وبقيت مش متخيل حياتي من غيرها.</p>
+          <p>عايزك تعرفي إنك بالنسبالي مش فترة وهتعدي، ولا مجرد ذكرى حلوة في حياتي. إنتِ حكاية أنا نفسي تكمل، وكل فصل فيها يبقى أحلى من اللي قبله.</p>
+          <p>بحبك في أيامنا الحلوة، وبحبك حتى في الأيام اللي بنتخانق فيها. بحبك وإنتِ مبسوطة، وإنتِ زعلانة، وإنتِ بتضحكي، وإنتِ بتتكرمي في أي حاجة 😂❤️. بحبك في كل حالاتك، ومش محتاج سبب عشان أحبك.</p>
+          <p>نفسي أفضل الشخص اللي يطمنك، ويسندك، ويفرح لفرحتك، ويقف جنبك وقت تعبك، وأفضل دايمًا أقولك قد إيه إنتِ غالية عندي.</p>
+          <p>شيرين، لو الدنيا ادتني فرصة أختار تاني، وسط كل الناس وكل الطرق وكل الاحتمالات، هختارك إنتِ تاني… وهختارك كل مرة.</p>
+          <p>أنا بعشقك أكتر مما الكلام يقدر يقول، وأكتر مما أي رسالة ممكن توصف، وكل اللي أقدر أوعدك بيه إن مهما كبرت الأيام ومهما اتغيرت الدنيا حوالينا، هيفضل ليكي مكان جوا قلبي محدش يقدر ياخده.</p>
+          <p class="pt-4 text-center text-xl font-bold text-rose-600">إنتِ حبيبتي، وصاحبتي، وأجمل جزء في حكايتي. ❤️<br>بحبك يا شيرين… بحبك أوي.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="border-t border-rose-100 px-5 py-8 text-center text-sm text-gray-400">
+    <p>صُنع بكل حب لشيرين ❤️ | <span id="year">2026</span></p>
+  </footer>
+
+  <script>
+    const audio = document.getElementById("bgMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    const spotifyPlayer = document.getElementById("spotifyPlayer");
+    const playerToggle = document.getElementById("playerToggle");
+    const playerClose = document.getElementById("playerClose");
+    const progressBar = document.getElementById("progressBar");
+    const currentTime = document.getElementById("currentTime");
+    const duration = document.getElementById("duration");
+    const daysCount = document.getElementById("daysCount");
+
+    function formatTime(seconds) {
+      if (!Number.isFinite(seconds)) return "0:00";
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, "0");
+      return `${minutes}:${remainingSeconds}`;
+    }
+
+    function updateMusicButton(isPlaying) {
+      musicToggle.setAttribute("aria-pressed", String(isPlaying));
+      musicToggle.innerHTML = isPlaying
+        ? '<span aria-hidden="true">⏸</span> إيقاف'
+        : '<span aria-hidden="true">▶</span> تشغيل';
+      playerToggle.setAttribute("aria-pressed", String(isPlaying));
+      playerToggle.setAttribute("aria-label", isPlaying ? "إيقاف الموسيقى" : "تشغيل الموسيقى");
+      playerToggle.innerHTML = isPlaying
+        ? '<span aria-hidden="true">Ⅱ</span>'
+        : '<span aria-hidden="true">▶</span>';
+    }
+
+    async function toggleAudio() {
+      if (audio.paused) {
+        try {
+          await audio.play();
+          updateMusicButton(true);
+          spotifyPlayer.classList.remove("hidden");
+        } catch {
+          updateMusicButton(false);
+          musicToggle.title = "تعذر تشغيل الصوت، تحقق من رابط الملف الصوتي";
+        }
+      } else {
+        audio.pause();
+        updateMusicButton(false);
+      }
+    }
+
+    musicToggle.addEventListener("click", toggleAudio);
+    playerToggle.addEventListener("click", toggleAudio);
+    playerClose.addEventListener("click", () => spotifyPlayer.classList.add("hidden"));
+    audio.addEventListener("loadedmetadata", () => {
+      duration.textContent = formatTime(audio.duration);
+    });
+    audio.addEventListener("timeupdate", () => {
+      const percent = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+      progressBar.value = percent;
+      currentTime.textContent = formatTime(audio.currentTime);
+    });
+    progressBar.addEventListener("input", () => {
+      if (audio.duration) audio.currentTime = (Number(progressBar.value) / 100) * audio.duration;
+    });
+
+    audio.addEventListener("ended", () => updateMusicButton(false));
+
+    const startDate = new Date("2023-08-23T00:00:00");
+    const today = new Date();
+    const diffDays = Math.max(0, Math.floor((today - startDate) / 86400000));
+    daysCount.textContent = new Intl.NumberFormat("ar-EG").format(diffDays);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
