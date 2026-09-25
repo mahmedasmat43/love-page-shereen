@@ -261,8 +261,8 @@
           </article>
         </div>
         <div id="memoryResult" class="mt-7 hidden overflow-hidden rounded-2xl border border-rose-200 bg-rose-50/80" aria-live="polite">
-          <div class="grid items-center md:grid-cols-[160px_1fr]">
-            <img id="memoryResultImage" class="h-44 w-full object-cover md:h-full" src="memory-1.jpeg" alt="">
+          <div class="grid items-center md:grid-cols-[220px_1fr]">
+            <div id="memoryResultImages" class="grid h-44 grid-cols-2 gap-1 overflow-hidden md:h-full" aria-label="صور الذكرى"></div>
             <div class="p-5 text-center md:p-7 md:text-right">
               <span class="text-sm font-bold text-rose-500">إجابتك وصلت للقلب</span>
               <p id="memoryResultText" class="serif-text mt-2 text-xl leading-relaxed text-gray-700"></p>
@@ -378,23 +378,23 @@
     audio.addEventListener("ended", () => updateMusicButton(false));
 
     const memoryResult = document.getElementById("memoryResult");
-    const memoryResultImage = document.getElementById("memoryResultImage");
+    const memoryResultImages = document.getElementById("memoryResultImages");
     const memoryResultText = document.getElementById("memoryResultText");
     const memoryMessages = {
       "first-day": {
-        date: ["بالضبط! 23 أغسطس 2023 كان أول فصل في أجمل حكاية ❤️", "memory-1.jpeg"],
-        ordinary: ["يمكن اليوم كان عادي للناس، بس بالنسبالي كان بداية كل حاجة حلوة.", "memory-2.jpeg"],
-        surprise: ["أجمل مفاجأة إن يوم بسيط يغيّر شكل العمر كله.", "memory-1.jpeg"]
+        date: ["بالضبط! 23 أغسطس 2023 كان أول فصل في أجمل حكاية ❤️", ["memory-6.jpeg", "memory-5.jpeg"]],
+        ordinary: ["يمكن اليوم كان عادي للناس، بس بالنسبالي كان بداية كل حاجة حلوة.", ["memory-2.jpeg", "memory-6.jpeg"]],
+        surprise: ["أجمل مفاجأة إن يوم بسيط يغيّر شكل العمر كله.", ["memory-1.jpeg", "memory-8.jpeg"]]
       },
       "first-word": {
-        you: ["المهم إن الكلمة الأولى فتحت باب لحكاية كبيرة أوي.", "memory-3.jpeg"],
-        her: ["واضح إنك كنتِ عارفة من البداية إنك هتخلي قلبي يبتسم.", "memory-2.jpeg"],
-        both: ["وده أحلى اختيار… لأن أجمل الكلام دايمًا بيكمل بينا سوا.", "memory-4.jpeg"]
+        you: ["المهم إن الكلمة الأولى فتحت باب لحكاية كبيرة أوي.", ["memory-3.jpeg", "memory-7.jpeg"]],
+        her: ["واضح إنك كنتِ عارفة من البداية إنك هتخلي قلبي يبتسم.", ["memory-2.jpeg", "memory-8.jpeg"]],
+        both: ["وده أحلى اختيار… لأن أجمل الكلام دايمًا بيكمل بينا سوا.", ["memory-1.jpeg", "memory-9.jpeg"]]
       },
       "best-outing": {
-        laughs: ["ضحكتك في الخروجة دي لسه من أجمل الحاجات اللي فاكرها.", "memory-3.jpeg"],
-        quiet: ["أجمل الخروجات هي اللي بنحس فيها إن الدنيا كلها اختفت حوالينا.", "memory-4.jpeg"],
-        all: ["إجابة مضمونة… كل خروجة معاكي ليها مكان خاص في قلبي.", "memory-1.jpeg"]
+        laughs: ["ضحكتك في الخروجة دي لسه من أجمل الحاجات اللي فاكرها.", ["memory-3.jpeg", "memory-5.jpeg", "memory-9.jpeg"]],
+        quiet: ["أجمل الخروجات هي اللي بنحس فيها إن الدنيا كلها اختفت حوالينا.", ["memory-4.jpeg", "memory-6.jpeg", "memory-8.jpeg"]],
+        all: ["إجابة مضمونة… كل خروجة معاكي ليها مكان خاص في قلبي.", ["memory-1.jpeg", "memory-2.jpeg", "memory-3.jpeg", "memory-4.jpeg", "memory-5.jpeg", "memory-6.jpeg", "memory-7.jpeg", "memory-8.jpeg", "memory-9.jpeg"]]
       }
     };
 
@@ -402,8 +402,7 @@
       button.addEventListener("click", () => {
         const message = memoryMessages[button.dataset.memory][button.dataset.answer];
         memoryResultText.textContent = message[0];
-        memoryResultImage.src = message[1];
-        memoryResultImage.alt = "صورة من ذكرياتنا";
+        memoryResultImages.innerHTML = message[1].map((image) => `<img class="h-full min-w-0 w-full object-cover" src="${image}" alt="صورة من ذكرياتنا" loading="lazy">`).join("");
         memoryResult.classList.remove("hidden");
       });
     });
