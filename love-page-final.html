@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#fff7f8">
-  <meta name="description" content="حكاية حب جميلة مخصصة لشيرين">
-  <title>قصة حبنا | شيرين</title>
+  <meta name="description" content="Ø­ÙƒØ§ÙŠØ© Ø­Ø¨ Ø¬Ù…ÙŠÙ„Ø© Ù…Ø®ØµØµØ© Ù„Ø´ÙŠØ±ÙŠÙ†">
+  <title>Ù‚ØµØ© Ø­Ø¨Ù†Ø§ | Ø´ÙŠØ±ÙŠÙ†</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,6 +83,13 @@
 
     .letter-card[hidden] { display: none; }
 
+    .open-when-card { transition: transform .25s ease, box-shadow .25s ease; }
+    .open-when-card:hover,
+    .open-when-card:focus-visible {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 30px rgba(217, 70, 103, .14);
+    }
+
     .spotify-player {
       background: rgba(24, 24, 24, .94);
       box-shadow: 0 18px 50px rgba(0, 0, 0, .2);
@@ -106,12 +113,12 @@
 
 <body class="selection:bg-rose-200 selection:text-rose-950">
   <header class="fixed inset-x-0 top-0 z-50 p-3 sm:p-5">
-    <nav class="glass-card mx-auto flex max-w-5xl items-center justify-between gap-3 rounded-2xl px-4 py-3 sm:rounded-full sm:px-6" aria-label="التنقل الرئيسي">
-      <a href="#home" class="font-bold text-rose-700 transition hover:text-rose-900">شيرين <span aria-hidden="true">❤️</span></a>
+    <nav class="glass-card mx-auto flex max-w-5xl items-center justify-between gap-3 rounded-2xl px-4 py-3 sm:rounded-full sm:px-6" aria-label="Ø§Ù„ØªÙ†Ù‚Ù„ Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠ">
+      <a href="#home" class="font-bold text-rose-700 transition hover:text-rose-900">Ø´ÙŠØ±ÙŠÙ† <span aria-hidden="true">â¤ï¸</span></a>
       <div class="flex items-center gap-2">
-        <a href="#letter" class="hidden text-sm font-semibold text-gray-600 transition hover:text-rose-700 sm:inline">رسالة ليكي</a>
+        <a href="#letter" class="hidden text-sm font-semibold text-gray-600 transition hover:text-rose-700 sm:inline">Ø±Ø³Ø§Ù„Ø© Ù„ÙŠÙƒÙŠ</a>
         <button id="musicToggle" type="button" class="rounded-full bg-[#1ed760] px-3 py-2 text-xs font-bold text-black shadow-md transition hover:bg-[#1fdf64] focus:outline-none focus:ring-4 focus:ring-green-200 sm:px-4 sm:text-sm" aria-pressed="false">
-          <span aria-hidden="true">▶</span> تشغيل
+          <span aria-hidden="true">â–¶</span> ØªØ´ØºÙŠÙ„
         </button>
       </div>
     </nav>
@@ -121,21 +128,21 @@
     <source src="song-742-942-final.mp3" type="audio/mpeg">
   </audio>
 
-  <aside id="spotifyPlayer" class="spotify-player fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-xl rounded-2xl p-3 text-white sm:bottom-6 sm:left-auto sm:right-6" aria-label="مشغل الموسيقى">
+  <aside id="spotifyPlayer" class="spotify-player fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-xl rounded-2xl p-3 text-white sm:bottom-6 sm:left-auto sm:right-6" aria-label="Ù…Ø´ØºÙ„ Ø§Ù„Ù…ÙˆØ³ÙŠÙ‚Ù‰">
     <div class="flex items-center gap-3">
-      <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-green-400 to-green-700 text-2xl shadow-inner" aria-hidden="true">♫</div>
+      <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-green-400 to-green-700 text-2xl shadow-inner" aria-hidden="true">â™«</div>
       <div class="min-w-0 flex-1">
-        <p class="truncate text-sm font-bold">قال إيه بيسألوني</p>
-        <p class="mt-0.5 text-xs text-gray-400">شيرين • ذكرياتنا</p>
+        <p class="truncate text-sm font-bold">Ù‚Ø§Ù„ Ø¥ÙŠÙ‡ Ø¨ÙŠØ³Ø£Ù„ÙˆÙ†ÙŠ</p>
+        <p class="mt-0.5 text-xs text-gray-400">Ø´ÙŠØ±ÙŠÙ† â€¢ Ø°ÙƒØ±ÙŠØ§ØªÙ†Ø§</p>
       </div>
-      <button id="playerToggle" type="button" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-black transition hover:scale-105 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-400" aria-label="تشغيل الموسيقى" aria-pressed="false">
-        <span aria-hidden="true">▶</span>
+      <button id="playerToggle" type="button" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-black transition hover:scale-105 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-400" aria-label="ØªØ´ØºÙŠÙ„ Ø§Ù„Ù…ÙˆØ³ÙŠÙ‚Ù‰" aria-pressed="false">
+        <span aria-hidden="true">â–¶</span>
       </button>
-      <button id="playerClose" type="button" class="p-1 text-gray-400 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-green-400" aria-label="إخفاء مشغل الموسيقى">×</button>
+      <button id="playerClose" type="button" class="p-1 text-gray-400 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-green-400" aria-label="Ø¥Ø®ÙØ§Ø¡ Ù…Ø´ØºÙ„ Ø§Ù„Ù…ÙˆØ³ÙŠÙ‚Ù‰">Ã—</button>
     </div>
     <div class="mt-2 flex items-center gap-2 text-[10px] text-gray-400">
       <span id="currentTime">0:00</span>
-      <input id="progressBar" class="progress-range h-1 w-full" type="range" min="0" max="100" value="0" step="0.1" aria-label="تقدم الموسيقى">
+      <input id="progressBar" class="progress-range h-1 w-full" type="range" min="0" max="100" value="0" step="0.1" aria-label="ØªÙ‚Ø¯Ù… Ø§Ù„Ù…ÙˆØ³ÙŠÙ‚Ù‰">
       <span id="duration">0:00</span>
     </div>
   </aside>
@@ -143,128 +150,138 @@
   <main>
     <section id="home" class="relative flex min-h-screen items-center justify-center overflow-hidden px-5 pb-16 pt-32 text-center">
       <div class="hero-grid absolute inset-0" aria-hidden="true"></div>
-      <span class="floating-heart right-[12%] top-36 text-3xl" aria-hidden="true">♡</span>
-      <span class="floating-heart left-[15%] top-1/3 text-5xl" aria-hidden="true">♥</span>
-      <span class="floating-heart bottom-28 right-[24%] text-2xl" aria-hidden="true">♡</span>
+      <span class="floating-heart right-[12%] top-36 text-3xl" aria-hidden="true">â™¡</span>
+      <span class="floating-heart left-[15%] top-1/3 text-5xl" aria-hidden="true">â™¥</span>
+      <span class="floating-heart bottom-28 right-[24%] text-2xl" aria-hidden="true">â™¡</span>
 
       <div class="relative z-10 mx-auto max-w-3xl">
         <span class="mb-5 inline-flex items-center gap-2 rounded-full border border-rose-200 bg-white/70 px-4 py-2 text-xs font-bold tracking-wide text-rose-600 shadow-sm">
-          <span aria-hidden="true">✦</span> حكايتنا الجميلة <span aria-hidden="true">✦</span>
+          <span aria-hidden="true">âœ¦</span> Ø­ÙƒØ§ÙŠØªÙ†Ø§ Ø§Ù„Ø¬Ù…ÙŠÙ„Ø© <span aria-hidden="true">âœ¦</span>
         </span>
-        <h1 class="text-4xl font-bold leading-tight text-gray-800 sm:text-6xl">أجمل حاجة حصلتلي في حياتي <span class="text-rose-500" aria-hidden="true">❤️</span></h1>
+        <h1 class="text-4xl font-bold leading-tight text-gray-800 sm:text-6xl">Ø£Ø¬Ù…Ù„ Ø­Ø§Ø¬Ø© Ø­ØµÙ„ØªÙ„ÙŠ ÙÙŠ Ø­ÙŠØ§ØªÙŠ <span class="text-rose-500" aria-hidden="true">â¤ï¸</span></h1>
         <p class="serif-text mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-gray-600 sm:text-2xl">
-          "من أول لحظة حسيت إن في حاجة مختلفة، ومن يومها وإنتِ بقيتي جزء من أيامي وقلبي."
+          "Ù…Ù† Ø£ÙˆÙ„ Ù„Ø­Ø¸Ø© Ø­Ø³ÙŠØª Ø¥Ù† ÙÙŠ Ø­Ø§Ø¬Ø© Ù…Ø®ØªÙ„ÙØ©ØŒ ÙˆÙ…Ù† ÙŠÙˆÙ…Ù‡Ø§ ÙˆØ¥Ù†ØªÙ Ø¨Ù‚ÙŠØªÙŠ Ø¬Ø²Ø¡ Ù…Ù† Ø£ÙŠØ§Ù…ÙŠ ÙˆÙ‚Ù„Ø¨ÙŠ."
         </p>
 
         <div class="mx-auto mt-10 max-w-xl rounded-3xl border border-rose-100 bg-white/75 p-5 shadow-xl shadow-rose-100/40 backdrop-blur sm:p-7">
           <div class="grid grid-cols-2 items-center gap-4 sm:grid-cols-[1fr_auto_1fr]">
             <div>
               <strong id="daysCount" class="block text-3xl font-bold text-rose-600 sm:text-4xl">--</strong>
-              <span class="text-xs text-gray-500">يوم مع بعض</span>
+              <span class="text-xs text-gray-500">ÙŠÙˆÙ… Ù…Ø¹ Ø¨Ø¹Ø¶</span>
             </div>
             <div class="hidden h-12 w-px bg-rose-200 sm:block"></div>
             <div>
-              <span class="block text-sm font-bold text-gray-700">تاريخ أول لقاء</span>
-              <time datetime="2023-08-23" class="text-xs text-gray-500">23 أغسطس 2023</time>
+              <span class="block text-sm font-bold text-gray-700">ØªØ§Ø±ÙŠØ® Ø£ÙˆÙ„ Ù„Ù‚Ø§Ø¡</span>
+              <time datetime="2023-08-23" class="text-xs text-gray-500">23 Ø£ØºØ³Ø·Ø³ 2023</time>
+            </div>
+            <div class="mt-5 border-t border-rose-100 pt-5">
+              <span class="text-xs font-bold text-rose-500">Ø§Ù„Ø°ÙƒØ±Ù‰ Ø§Ù„Ø³Ù†ÙˆÙŠØ© Ø§Ù„Ù‚Ø§Ø¯Ù…Ø© â¤ï¸</span>
+              <strong id="anniversaryDate" class="mt-1 block text-lg text-gray-800">23 Ø£ØºØ³Ø·Ø³</strong>
+              <div class="mt-3 grid grid-cols-3 gap-2 text-center">
+                <div class="rounded-xl bg-rose-50 p-2"><strong id="anniversaryDays" class="block text-lg text-rose-600">--</strong><span class="text-[10px] text-gray-500">ÙŠÙˆÙ…</span></div>
+                <div class="rounded-xl bg-rose-50 p-2"><strong id="anniversaryHours" class="block text-lg text-rose-600">--</strong><span class="text-[10px] text-gray-500">Ø³Ø§Ø¹Ø©</span></div>
+                <div class="rounded-xl bg-rose-50 p-2"><strong id="anniversaryMinutes" class="block text-lg text-rose-600">--</strong><span class="text-[10px] text-gray-500">Ø¯Ù‚ÙŠÙ‚Ø©</span></div>
+              </div>
+              <p id="anniversaryMessage" class="mt-3 text-xs text-gray-500">ÙƒÙ„ Ø³Ù†Ø© ÙˆØ­ÙƒØ§ÙŠØªÙ†Ø§ Ø£Ø­Ù„Ù‰</p>
             </div>
           </div>
         </div>
 
         <a href="#story" class="mt-10 inline-flex items-center gap-2 text-sm font-bold text-rose-600 transition hover:text-rose-800">
-          اكتشفي حكايتنا <span aria-hidden="true">↓</span>
+          Ø§ÙƒØªØ´ÙÙŠ Ø­ÙƒØ§ÙŠØªÙ†Ø§ <span aria-hidden="true">â†“</span>
         </a>
       </div>
     </section>
 
     <section id="story" class="mx-auto max-w-4xl px-5 py-20">
       <div class="mb-10 text-center">
-        <span class="text-sm font-bold text-rose-500">الفصل الأول</span>
-        <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">بداية الحكاية <span aria-hidden="true">✨</span></h2>
+        <span class="text-sm font-bold text-rose-500">Ø§Ù„ÙØµÙ„ Ø§Ù„Ø£ÙˆÙ„</span>
+        <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">Ø¨Ø¯Ø§ÙŠØ© Ø§Ù„Ø­ÙƒØ§ÙŠØ© <span aria-hidden="true">âœ¨</span></h2>
       </div>
       <article class="glass-card relative overflow-hidden rounded-3xl p-7 text-center sm:p-12">
-        <div class="absolute -left-8 -top-8 text-8xl text-rose-100" aria-hidden="true">“</div>
+        <div class="absolute -left-8 -top-8 text-8xl text-rose-100" aria-hidden="true">â€œ</div>
         <time datetime="2023-08-23" class="relative inline-block rounded-full bg-rose-100 px-4 py-2 text-sm font-bold text-rose-700">23 / 8 / 2023</time>
         <p class="serif-text relative mt-6 text-xl leading-loose text-gray-700">
-          أول يوم لينا كان بداية لحكاية مكنتش أعرف وقتها إنها هتبقى أجمل حاجة حصلتلي. من أول لحظة حسيت إن في حاجة مختلفة، ومن يومها وإنتِ بقيتي جزء من أيامي وقلبي.
+          Ø£ÙˆÙ„ ÙŠÙˆÙ… Ù„ÙŠÙ†Ø§ ÙƒØ§Ù† Ø¨Ø¯Ø§ÙŠØ© Ù„Ø­ÙƒØ§ÙŠØ© Ù…ÙƒÙ†ØªØ´ Ø£Ø¹Ø±Ù ÙˆÙ‚ØªÙ‡Ø§ Ø¥Ù†Ù‡Ø§ Ù‡ØªØ¨Ù‚Ù‰ Ø£Ø¬Ù…Ù„ Ø­Ø§Ø¬Ø© Ø­ØµÙ„ØªÙ„ÙŠ. Ù…Ù† Ø£ÙˆÙ„ Ù„Ø­Ø¸Ø© Ø­Ø³ÙŠØª Ø¥Ù† ÙÙŠ Ø­Ø§Ø¬Ø© Ù…Ø®ØªÙ„ÙØ©ØŒ ÙˆÙ…Ù† ÙŠÙˆÙ…Ù‡Ø§ ÙˆØ¥Ù†ØªÙ Ø¨Ù‚ÙŠØªÙŠ Ø¬Ø²Ø¡ Ù…Ù† Ø£ÙŠØ§Ù…ÙŠ ÙˆÙ‚Ù„Ø¨ÙŠ.
         </p>
       </article>
     </section>
 
     <section class="mx-auto max-w-5xl px-5 py-10">
       <div class="mb-10 text-center">
-        <span class="text-sm font-bold text-rose-500">لحظات لا تُنسى</span>
-        <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">ذكرياتنا سوا <span aria-hidden="true">📸</span></h2>
-        <p class="mt-3 text-gray-500">لحظات صغيرة.. بس حفرت مكانها جوة القلب</p>
+        <span class="text-sm font-bold text-rose-500">Ù„Ø­Ø¸Ø§Øª Ù„Ø§ ØªÙÙ†Ø³Ù‰</span>
+        <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">Ø°ÙƒØ±ÙŠØ§ØªÙ†Ø§ Ø³ÙˆØ§ <span aria-hidden="true">ðŸ“¸</span></h2>
+        <p class="mt-3 text-gray-500">Ù„Ø­Ø¸Ø§Øª ØµØºÙŠØ±Ø©.. Ø¨Ø³ Ø­ÙØ±Øª Ù…ÙƒØ§Ù†Ù‡Ø§ Ø¬ÙˆØ© Ø§Ù„Ù‚Ù„Ø¨</p>
       </div>
       <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
         <figure class="photo-card rotate-[-2deg] rounded-2xl bg-white p-4 shadow-lg">
           <div class="h-72 overflow-hidden rounded-xl bg-rose-100">
-            <img src="memory-1.jpeg" alt="ذكرى أيدينا معًا في موعد جميل" class="h-full w-full object-cover" loading="lazy">
+            <img src="memory-1.jpeg" alt="Ø°ÙƒØ±Ù‰ Ø£ÙŠØ¯ÙŠÙ†Ø§ Ù…Ø¹Ù‹Ø§ ÙÙŠ Ù…ÙˆØ¹Ø¯ Ø¬Ù…ÙŠÙ„" class="h-full w-full object-cover" loading="lazy">
           </div>
-          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">إيد في إيد ❤️</figcaption>
+          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">Ø¥ÙŠØ¯ ÙÙŠ Ø¥ÙŠØ¯ â¤ï¸</figcaption>
         </figure>
         <figure class="photo-card rotate-[2deg] rounded-2xl bg-white p-4 shadow-lg">
           <div class="h-72 overflow-hidden rounded-xl bg-rose-100">
-            <img src="memory-2.jpeg" alt="ذكرى صورة جميلة لنا أمام المرآة" class="h-full w-full object-cover" loading="lazy">
+            <img src="memory-2.jpeg" alt="Ø°ÙƒØ±Ù‰ ØµÙˆØ±Ø© Ø¬Ù…ÙŠÙ„Ø© Ù„Ù†Ø§ Ø£Ù…Ø§Ù… Ø§Ù„Ù…Ø±Ø¢Ø©" class="h-full w-full object-cover" loading="lazy">
           </div>
-          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">أجمل صورة ✨</figcaption>
+          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">Ø£Ø¬Ù…Ù„ ØµÙˆØ±Ø© âœ¨</figcaption>
         </figure>
         <figure class="photo-card rotate-[-1deg] rounded-2xl bg-white p-4 shadow-lg">
           <div class="h-72 overflow-hidden rounded-xl bg-rose-100">
-            <img src="memory-3.jpeg" alt="ذكرى صورة قريبة لنا معًا" class="h-full w-full object-cover" loading="lazy">
+            <img src="memory-3.jpeg" alt="Ø°ÙƒØ±Ù‰ ØµÙˆØ±Ø© Ù‚Ø±ÙŠØ¨Ø© Ù„Ù†Ø§ Ù…Ø¹Ù‹Ø§" class="h-full w-full object-cover" loading="lazy">
           </div>
-          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">ضحكتنا سوا 🌹</figcaption>
+          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">Ø¶Ø­ÙƒØªÙ†Ø§ Ø³ÙˆØ§ ðŸŒ¹</figcaption>
         </figure>
         <figure class="photo-card rotate-[1deg] rounded-2xl bg-white p-4 shadow-lg sm:col-span-2 md:col-span-1">
           <div class="h-72 overflow-hidden rounded-xl bg-rose-100">
-            <img src="memory-4.jpeg" alt="ذكرى لحظة دافئة ومميزة" class="h-full w-full object-cover" loading="lazy">
+            <img src="memory-4.jpeg" alt="Ø°ÙƒØ±Ù‰ Ù„Ø­Ø¸Ø© Ø¯Ø§ÙØ¦Ø© ÙˆÙ…Ù…ÙŠØ²Ø©" class="h-full w-full object-cover" loading="lazy">
           </div>
-          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">لحظة من القلب 💕</figcaption>
+          <figcaption class="serif-text mt-4 text-center text-lg font-bold text-gray-600">Ù„Ø­Ø¸Ø© Ù…Ù† Ø§Ù„Ù‚Ù„Ø¨ ðŸ’•</figcaption>
         </figure>
       </div>
     </section>
 
     <section id="memories" class="mx-auto max-w-5xl px-5 py-20">
       <div class="mb-10 text-center">
-        <span class="text-sm font-bold text-rose-500">اختبري ذاكرتك</span>
-        <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">اختاري ذكرى ❤️</h2>
-        <p class="mt-3 text-gray-500">جاوبي على سؤال صغير، وشوفي رسالة مخبّية ليكي</p>
+        <span class="text-sm font-bold text-rose-500">Ø§Ø®ØªØ¨Ø±ÙŠ Ø°Ø§ÙƒØ±ØªÙƒ</span>
+        <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">Ø§Ø®ØªØ§Ø±ÙŠ Ø°ÙƒØ±Ù‰ â¤ï¸</h2>
+        <p class="mt-3 text-gray-500">Ø¬Ø§ÙˆØ¨ÙŠ Ø¹Ù„Ù‰ Ø³Ø¤Ø§Ù„ ØµØºÙŠØ±ØŒ ÙˆØ´ÙˆÙÙŠ Ø±Ø³Ø§Ù„Ø© Ù…Ø®Ø¨Ù‘ÙŠØ© Ù„ÙŠÙƒÙŠ</p>
       </div>
       <div class="glass-card rounded-3xl p-6 sm:p-10">
         <div class="grid gap-5 md:grid-cols-3">
           <article class="rounded-2xl border border-rose-100 bg-white/70 p-5">
-            <span class="text-2xl" aria-hidden="true">📅</span>
-            <h3 class="mt-3 font-bold text-gray-800">فاكرة أول يوم؟</h3>
+            <span class="text-2xl" aria-hidden="true">ðŸ“…</span>
+            <h3 class="mt-3 font-bold text-gray-800">ÙØ§ÙƒØ±Ø© Ø£ÙˆÙ„ ÙŠÙˆÙ…ØŸ</h3>
             <div class="mt-4 grid gap-2">
-              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-day" data-answer="date">23 أغسطس 2023</button>
-              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-day" data-answer="ordinary">كان يوم عادي</button>
-              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-day" data-answer="surprise">مفاجأة جميلة</button>
+              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-day" data-answer="date">23 Ø£ØºØ³Ø·Ø³ 2023</button>
+              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-day" data-answer="ordinary">ÙƒØ§Ù† ÙŠÙˆÙ… Ø¹Ø§Ø¯ÙŠ</button>
+              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-day" data-answer="surprise">Ù…ÙØ§Ø¬Ø£Ø© Ø¬Ù…ÙŠÙ„Ø©</button>
             </div>
           </article>
           <article class="rounded-2xl border border-rose-100 bg-white/70 p-5">
-            <span class="text-2xl" aria-hidden="true">💬</span>
-            <h3 class="mt-3 font-bold text-gray-800">مين قال أول كلمة؟</h3>
+            <span class="text-2xl" aria-hidden="true">ðŸ’¬</span>
+            <h3 class="mt-3 font-bold text-gray-800">Ù…ÙŠÙ† Ù‚Ø§Ù„ Ø£ÙˆÙ„ ÙƒÙ„Ù…Ø©ØŸ</h3>
             <div class="mt-4 grid gap-2">
-              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-word" data-answer="you">إنتَ اللي بدأت</button>
-              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-word" data-answer="her">إنتِ اللي بدأتي</button>
-              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-word" data-answer="both">بدأناها سوا</button>
+              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-word" data-answer="you">Ø¥Ù†ØªÙŽ Ø§Ù„Ù„ÙŠ Ø¨Ø¯Ø£Øª</button>
+              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-word" data-answer="her">Ø¥Ù†ØªÙ Ø§Ù„Ù„ÙŠ Ø¨Ø¯Ø£ØªÙŠ</button>
+              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="first-word" data-answer="both">Ø¨Ø¯Ø£Ù†Ø§Ù‡Ø§ Ø³ÙˆØ§</button>
             </div>
           </article>
           <article class="rounded-2xl border border-rose-100 bg-white/70 p-5">
-            <span class="text-2xl" aria-hidden="true">🌹</span>
-            <h3 class="mt-3 font-bold text-gray-800">إيه أجمل خروجة؟</h3>
+            <span class="text-2xl" aria-hidden="true">ðŸŒ¹</span>
+            <h3 class="mt-3 font-bold text-gray-800">Ø¥ÙŠÙ‡ Ø£Ø¬Ù…Ù„ Ø®Ø±ÙˆØ¬Ø©ØŸ</h3>
             <div class="mt-4 grid gap-2">
-              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="best-outing" data-answer="laughs">الخروجة اللي ضحكنا فيها كتير</button>
-              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="best-outing" data-answer="quiet">الخروجة الهادية</button>
-              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="best-outing" data-answer="all">كل خروجة معاكي</button>
+              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="best-outing" data-answer="laughs">Ø§Ù„Ø®Ø±ÙˆØ¬Ø© Ø§Ù„Ù„ÙŠ Ø¶Ø­ÙƒÙ†Ø§ ÙÙŠÙ‡Ø§ ÙƒØªÙŠØ±</button>
+              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="best-outing" data-answer="quiet">Ø§Ù„Ø®Ø±ÙˆØ¬Ø© Ø§Ù„Ù‡Ø§Ø¯ÙŠØ©</button>
+              <button class="memory-answer rounded-xl border border-rose-100 bg-rose-50 px-3 py-2 text-sm text-gray-700 hover:bg-rose-100" type="button" data-memory="best-outing" data-answer="all">ÙƒÙ„ Ø®Ø±ÙˆØ¬Ø© Ù…Ø¹Ø§ÙƒÙŠ</button>
             </div>
           </article>
         </div>
         <div id="memoryResult" class="mt-7 hidden mb-[45vh] scroll-mt-24 overflow-hidden rounded-2xl border border-rose-200 bg-rose-50/80 shadow-lg shadow-rose-100/60 sm:mb-0" tabindex="-1" aria-live="polite">
           <div class="grid items-center md:grid-cols-[220px_1fr]">
-            <div id="memoryResultImages" class="grid h-44 grid-cols-2 gap-1 overflow-hidden md:h-full" aria-label="صور الذكرى"></div>
+            <div id="memoryResultImages" class="grid h-44 grid-cols-2 gap-1 overflow-hidden md:h-full" aria-label="ØµÙˆØ± Ø§Ù„Ø°ÙƒØ±Ù‰"></div>
             <div class="p-5 text-center md:p-7 md:text-right">
-              <span class="text-sm font-bold text-rose-500">إجابتك وصلت للقلب</span>
+              <span class="text-sm font-bold text-rose-500">Ø¥Ø¬Ø§Ø¨ØªÙƒ ÙˆØµÙ„Øª Ù„Ù„Ù‚Ù„Ø¨</span>
               <p id="memoryResultText" class="serif-text mt-2 text-xl leading-relaxed text-gray-700"></p>
             </div>
           </div>
@@ -272,46 +289,79 @@
       </div>
     </section>
 
+    <section id="open-when" class="mx-auto max-w-5xl px-5 py-20">
+      <div class="mb-10 text-center">
+        <span class="text-sm font-bold text-rose-500">Ø±Ø³Ø§Ø¦Ù„ Ù…Ø®Ø¨Ù‘ÙŠØ© Ù„ÙŠÙƒÙŠ</span>
+        <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">Ø§ÙØªØ­ÙŠ Ù„Ù…Ø§â€¦ ðŸ’Œ</h2>
+        <p class="mt-3 text-gray-500">Ø§Ø®ØªØ§Ø±ÙŠ Ø§Ù„ÙƒØ§Ø±Øª Ø§Ù„Ù„ÙŠ Ø´Ø¨Ù‡ Ø¥Ø­Ø³Ø§Ø³Ùƒ Ø¯Ù„ÙˆÙ‚ØªÙŠ</p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <button class="open-when-card glass-card rounded-3xl p-6 text-right" type="button" data-open-when="miss">
+          <span class="text-4xl" aria-hidden="true">ðŸ’Œ</span><strong class="mt-4 block text-lg text-gray-800">Ø§ÙØªØ­ÙŠ Ù„Ù…Ø§ ØªØ´ØªØ§Ù‚ÙŠÙ„ÙŠ</strong><span class="mt-2 block text-sm text-gray-500">Ø±Ø³Ø§Ù„Ø© ØµØºÙŠØ±Ø© Ù…Ù† Ù‚Ù„Ø¨ÙŠ</span>
+        </button>
+        <button class="open-when-card glass-card rounded-3xl p-6 text-right" type="button" data-open-when="sad">
+          <span class="text-4xl" aria-hidden="true">ðŸŒ§ï¸</span><strong class="mt-4 block text-lg text-gray-800">Ø§ÙØªØ­ÙŠ Ù„Ù…Ø§ ØªÙƒÙˆÙ†ÙŠ Ø²Ø¹Ù„Ø§Ù†Ø©</strong><span class="mt-2 block text-sm text-gray-500">Ø£Ù†Ø§ Ø¬Ù†Ø¨Ùƒ Ù…Ù‡Ù…Ø§ Ø­ØµÙ„</span>
+        </button>
+        <button class="open-when-card glass-card rounded-3xl p-6 text-right" type="button" data-open-when="smile">
+          <span class="text-4xl" aria-hidden="true">ðŸ˜Š</span><strong class="mt-4 block text-lg text-gray-800">Ø§ÙØªØ­ÙŠ Ù„Ù…Ø§ ØªØ­ØªØ§Ø¬ÙŠ ØªØ¨ØªØ³Ù…ÙŠ</strong><span class="mt-2 block text-sm text-gray-500">Ø¬Ø±Ø¹Ø© Ø­Ø¨ ÙˆØ¶Ø­Ùƒ</span>
+        </button>
+        <button class="open-when-card glass-card rounded-3xl p-6 text-right" type="button" data-open-when="birthday">
+          <span class="text-4xl" aria-hidden="true">ðŸŽ‚</span><strong class="mt-4 block text-lg text-gray-800">Ø§ÙØªØ­ÙŠ ÙÙŠ Ø¹ÙŠØ¯ Ù…ÙŠÙ„Ø§Ø¯Ùƒ</strong><span class="mt-2 block text-sm text-gray-500">Ø£Ø¬Ù…Ù„ Ø£Ù…Ù†ÙŠØ© Ù„Ø´ÙŠØ±ÙŠÙ†</span>
+        </button>
+        <button class="open-when-card glass-card rounded-3xl p-6 text-right sm:col-span-2 lg:col-span-2" type="button" data-open-when="first-meeting">
+          <span class="text-4xl" aria-hidden="true">âœ¨</span><strong class="mt-4 block text-lg text-gray-800">Ø§ÙØªØ­ÙŠ Ù„Ù…Ø§ ØªÙØªÙƒØ±ÙŠ Ø£ÙˆÙ„ Ù…Ù‚Ø§Ø¨Ù„Ø©</strong><span class="mt-2 block text-sm text-gray-500">Ù…Ù† Ù‡Ù†Ø§ Ø¨Ø¯Ø£Øª Ø£Ø¬Ù…Ù„ Ø­ÙƒØ§ÙŠØ©</span>
+        </button>
+      </div>
+    </section>
+
+    <div id="openWhenModal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-gray-950/50 p-5 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="openWhenTitle">
+      <article class="letter-paper w-full max-w-lg rounded-3xl border border-rose-100 p-7 shadow-2xl sm:p-10">
+        <div class="text-center"><span id="openWhenIcon" class="text-5xl" aria-hidden="true">ðŸ’Œ</span><h2 id="openWhenTitle" class="mt-4 text-2xl font-bold text-rose-600"></h2></div>
+        <p id="openWhenMessage" class="serif-text mt-7 text-center text-xl leading-loose text-gray-700"></p>
+        <button id="openWhenClose" type="button" class="mt-7 block w-full rounded-full bg-rose-600 px-5 py-3 font-bold text-white transition hover:bg-rose-700">Ø¥ØºÙ„Ø§Ù‚ Ø§Ù„Ø±Ø³Ø§Ù„Ø©</button>
+      </article>
+    </div>
+
     <section id="letter" class="mx-auto max-w-3xl px-5 py-20">
       <article class="letter-paper rounded-3xl border border-rose-100 p-7 shadow-2xl shadow-rose-100/50 sm:p-12">
         <header class="border-b border-rose-100 pb-7 text-center">
-          <span class="text-3xl" aria-hidden="true">💌</span>
-          <h2 class="mt-2 text-3xl font-bold text-rose-600">إلى شيرين ❤️</h2>
-          <p class="mt-1 text-xs text-gray-400">رسالة من القلب</p>
+          <span class="text-3xl" aria-hidden="true">ðŸ’Œ</span>
+          <h2 class="mt-2 text-3xl font-bold text-rose-600">Ø¥Ù„Ù‰ Ø´ÙŠØ±ÙŠÙ† â¤ï¸</h2>
+          <p class="mt-1 text-xs text-gray-400">Ø±Ø³Ø§Ù„Ø© Ù…Ù† Ø§Ù„Ù‚Ù„Ø¨</p>
         </header>
         <div id="letterPages" class="pt-8" aria-live="polite">
           <article class="letter-card serif-text text-right text-lg leading-loose text-gray-700" data-letter-page="0">
-            <p>مش عارف أبدأ كلامي منين، لأن مهما كتبت ومهما قلت، مش هقدر أوصفلك قد إيه أنا بعشقك وقد إيه وجودك في حياتي فرق معايا. إنتِ مش مجرد حد بحبه، إنتِ الشخص اللي بقيت أشوف معاه الدنيا بشكل مختلف، واللي وجوده لوحده قادر يخلّي يومي أحلى.</p>
-            <p class="mt-5">من أول ما دخلتي حياتي وأنا حاسس إن ربنا رزقني بحاجة جميلة أوي، وكل يوم بيعدي وأنا معاكي بيأكدلي أكتر إنك من أجمل الحاجات اللي حصلتلي.</p>
+            <p>Ù…Ø´ Ø¹Ø§Ø±Ù Ø£Ø¨Ø¯Ø£ ÙƒÙ„Ø§Ù…ÙŠ Ù…Ù†ÙŠÙ†ØŒ Ù„Ø£Ù† Ù…Ù‡Ù…Ø§ ÙƒØªØ¨Øª ÙˆÙ…Ù‡Ù…Ø§ Ù‚Ù„ØªØŒ Ù…Ø´ Ù‡Ù‚Ø¯Ø± Ø£ÙˆØµÙÙ„Ùƒ Ù‚Ø¯ Ø¥ÙŠÙ‡ Ø£Ù†Ø§ Ø¨Ø¹Ø´Ù‚Ùƒ ÙˆÙ‚Ø¯ Ø¥ÙŠÙ‡ ÙˆØ¬ÙˆØ¯Ùƒ ÙÙŠ Ø­ÙŠØ§ØªÙŠ ÙØ±Ù‚ Ù…Ø¹Ø§ÙŠØ§. Ø¥Ù†ØªÙ Ù…Ø´ Ù…Ø¬Ø±Ø¯ Ø­Ø¯ Ø¨Ø­Ø¨Ù‡ØŒ Ø¥Ù†ØªÙ Ø§Ù„Ø´Ø®Øµ Ø§Ù„Ù„ÙŠ Ø¨Ù‚ÙŠØª Ø£Ø´ÙˆÙ Ù…Ø¹Ø§Ù‡ Ø§Ù„Ø¯Ù†ÙŠØ§ Ø¨Ø´ÙƒÙ„ Ù…Ø®ØªÙ„ÙØŒ ÙˆØ§Ù„Ù„ÙŠ ÙˆØ¬ÙˆØ¯Ù‡ Ù„ÙˆØ­Ø¯Ù‡ Ù‚Ø§Ø¯Ø± ÙŠØ®Ù„Ù‘ÙŠ ÙŠÙˆÙ…ÙŠ Ø£Ø­Ù„Ù‰.</p>
+            <p class="mt-5">Ù…Ù† Ø£ÙˆÙ„ Ù…Ø§ Ø¯Ø®Ù„ØªÙŠ Ø­ÙŠØ§ØªÙŠ ÙˆØ£Ù†Ø§ Ø­Ø§Ø³Ø³ Ø¥Ù† Ø±Ø¨Ù†Ø§ Ø±Ø²Ù‚Ù†ÙŠ Ø¨Ø­Ø§Ø¬Ø© Ø¬Ù…ÙŠÙ„Ø© Ø£ÙˆÙŠØŒ ÙˆÙƒÙ„ ÙŠÙˆÙ… Ø¨ÙŠØ¹Ø¯ÙŠ ÙˆØ£Ù†Ø§ Ù…Ø¹Ø§ÙƒÙŠ Ø¨ÙŠØ£ÙƒØ¯Ù„ÙŠ Ø£ÙƒØªØ± Ø¥Ù†Ùƒ Ù…Ù† Ø£Ø¬Ù…Ù„ Ø§Ù„Ø­Ø§Ø¬Ø§Øª Ø§Ù„Ù„ÙŠ Ø­ØµÙ„ØªÙ„ÙŠ.</p>
           </article>
           <article class="letter-card serif-text text-right text-lg leading-loose text-gray-700" data-letter-page="1" hidden>
-            <p>بحب تفاصيلك كلها، ضحكتك، كلامك، طريقتك، زعلك، فرحتك، وحتى الحاجات الصغيرة اللي يمكن إنتِ نفسك مش واخدة بالك منها.</p>
-            <p class="mt-5">أنا بعشق وجودك، وبحب إني أعرف إن في شخص في الدنيا أقدر أحكيله كل حاجة، وأفرح معاه، وأزعل معاه، وألاقيه قريب من قلبي مهما حصل.</p>
+            <p>Ø¨Ø­Ø¨ ØªÙØ§ØµÙŠÙ„Ùƒ ÙƒÙ„Ù‡Ø§ØŒ Ø¶Ø­ÙƒØªÙƒØŒ ÙƒÙ„Ø§Ù…ÙƒØŒ Ø·Ø±ÙŠÙ‚ØªÙƒØŒ Ø²Ø¹Ù„ÙƒØŒ ÙØ±Ø­ØªÙƒØŒ ÙˆØ­ØªÙ‰ Ø§Ù„Ø­Ø§Ø¬Ø§Øª Ø§Ù„ØµØºÙŠØ±Ø© Ø§Ù„Ù„ÙŠ ÙŠÙ…ÙƒÙ† Ø¥Ù†ØªÙ Ù†ÙØ³Ùƒ Ù…Ø´ ÙˆØ§Ø®Ø¯Ø© Ø¨Ø§Ù„Ùƒ Ù…Ù†Ù‡Ø§.</p>
+            <p class="mt-5">Ø£Ù†Ø§ Ø¨Ø¹Ø´Ù‚ ÙˆØ¬ÙˆØ¯ÙƒØŒ ÙˆØ¨Ø­Ø¨ Ø¥Ù†ÙŠ Ø£Ø¹Ø±Ù Ø¥Ù† ÙÙŠ Ø´Ø®Øµ ÙÙŠ Ø§Ù„Ø¯Ù†ÙŠØ§ Ø£Ù‚Ø¯Ø± Ø£Ø­ÙƒÙŠÙ„Ù‡ ÙƒÙ„ Ø­Ø§Ø¬Ø©ØŒ ÙˆØ£ÙØ±Ø­ Ù…Ø¹Ø§Ù‡ØŒ ÙˆØ£Ø²Ø¹Ù„ Ù…Ø¹Ø§Ù‡ØŒ ÙˆØ£Ù„Ø§Ù‚ÙŠÙ‡ Ù‚Ø±ÙŠØ¨ Ù…Ù† Ù‚Ù„Ø¨ÙŠ Ù…Ù‡Ù…Ø§ Ø­ØµÙ„.</p>
           </article>
           <article class="letter-card serif-text text-right text-lg leading-loose text-gray-700" data-letter-page="2" hidden>
-            <p>نفسي أفضل جنبك، ونفضل نكبر سوا، ونعيش أيام كتير أكتر من اللي فاتت، ونفضل نفتكر كل لحظة بدأت بينا ونضحك ونقول: “بصّي إحنا وصلنا لفين.”</p>
-            <p class="mt-5">ولو الدنيا ضغطت علينا، هيفضل مكانك في قلبي ثابت، حتى في الأيام اللي بنتخانق فيها.</p>
+            <p>Ù†ÙØ³ÙŠ Ø£ÙØ¶Ù„ Ø¬Ù†Ø¨ÙƒØŒ ÙˆÙ†ÙØ¶Ù„ Ù†ÙƒØ¨Ø± Ø³ÙˆØ§ØŒ ÙˆÙ†Ø¹ÙŠØ´ Ø£ÙŠØ§Ù… ÙƒØªÙŠØ± Ø£ÙƒØªØ± Ù…Ù† Ø§Ù„Ù„ÙŠ ÙØ§ØªØªØŒ ÙˆÙ†ÙØ¶Ù„ Ù†ÙØªÙƒØ± ÙƒÙ„ Ù„Ø­Ø¸Ø© Ø¨Ø¯Ø£Øª Ø¨ÙŠÙ†Ø§ ÙˆÙ†Ø¶Ø­Ùƒ ÙˆÙ†Ù‚ÙˆÙ„: â€œØ¨ØµÙ‘ÙŠ Ø¥Ø­Ù†Ø§ ÙˆØµÙ„Ù†Ø§ Ù„ÙÙŠÙ†.â€</p>
+            <p class="mt-5">ÙˆÙ„Ùˆ Ø§Ù„Ø¯Ù†ÙŠØ§ Ø¶ØºØ·Øª Ø¹Ù„ÙŠÙ†Ø§ØŒ Ù‡ÙŠÙØ¶Ù„ Ù…ÙƒØ§Ù†Ùƒ ÙÙŠ Ù‚Ù„Ø¨ÙŠ Ø«Ø§Ø¨ØªØŒ Ø­ØªÙ‰ ÙÙŠ Ø§Ù„Ø£ÙŠØ§Ù… Ø§Ù„Ù„ÙŠ Ø¨Ù†ØªØ®Ø§Ù†Ù‚ ÙÙŠÙ‡Ø§.</p>
           </article>
           <article class="letter-card serif-text text-right text-lg leading-loose text-gray-700" data-letter-page="3" hidden>
-            <p>أنا مش بحبك عشان إنتِ كاملة، أنا بحبك بكل تفاصيلك، وبحب إنك إنتِ… شيرين اللي عرفتها، وقربت منها، واتعلقت بيها، وبقيت مش متخيل حياتي من غيرها.</p>
-            <p class="mt-5">نفسي أفضل الشخص اللي يطمنك، ويسندك، ويفرح لفرحتك، ويقف جنبك وقت تعبك.</p>
+            <p>Ø£Ù†Ø§ Ù…Ø´ Ø¨Ø­Ø¨Ùƒ Ø¹Ø´Ø§Ù† Ø¥Ù†ØªÙ ÙƒØ§Ù…Ù„Ø©ØŒ Ø£Ù†Ø§ Ø¨Ø­Ø¨Ùƒ Ø¨ÙƒÙ„ ØªÙØ§ØµÙŠÙ„ÙƒØŒ ÙˆØ¨Ø­Ø¨ Ø¥Ù†Ùƒ Ø¥Ù†ØªÙâ€¦ Ø´ÙŠØ±ÙŠÙ† Ø§Ù„Ù„ÙŠ Ø¹Ø±ÙØªÙ‡Ø§ØŒ ÙˆÙ‚Ø±Ø¨Øª Ù…Ù†Ù‡Ø§ØŒ ÙˆØ§ØªØ¹Ù„Ù‚Øª Ø¨ÙŠÙ‡Ø§ØŒ ÙˆØ¨Ù‚ÙŠØª Ù…Ø´ Ù…ØªØ®ÙŠÙ„ Ø­ÙŠØ§ØªÙŠ Ù…Ù† ØºÙŠØ±Ù‡Ø§.</p>
+            <p class="mt-5">Ù†ÙØ³ÙŠ Ø£ÙØ¶Ù„ Ø§Ù„Ø´Ø®Øµ Ø§Ù„Ù„ÙŠ ÙŠØ·Ù…Ù†ÙƒØŒ ÙˆÙŠØ³Ù†Ø¯ÙƒØŒ ÙˆÙŠÙØ±Ø­ Ù„ÙØ±Ø­ØªÙƒØŒ ÙˆÙŠÙ‚Ù Ø¬Ù†Ø¨Ùƒ ÙˆÙ‚Øª ØªØ¹Ø¨Ùƒ.</p>
           </article>
           <article class="letter-card serif-text text-right text-lg leading-loose text-gray-700" data-letter-page="4" hidden>
-            <p>شيرين، لو الدنيا ادتني فرصة أختار تاني، وسط كل الناس وكل الطرق وكل الاحتمالات، هختارك إنتِ تاني… وهختارك كل مرة.</p>
-            <p class="mt-5">إنتِ حبيبتي، وصاحبتي، وأجمل جزء في حكايتي. ❤️<br>بحبك يا شيرين… بحبك أوي.</p>
+            <p>Ø´ÙŠØ±ÙŠÙ†ØŒ Ù„Ùˆ Ø§Ù„Ø¯Ù†ÙŠØ§ Ø§Ø¯ØªÙ†ÙŠ ÙØ±ØµØ© Ø£Ø®ØªØ§Ø± ØªØ§Ù†ÙŠØŒ ÙˆØ³Ø· ÙƒÙ„ Ø§Ù„Ù†Ø§Ø³ ÙˆÙƒÙ„ Ø§Ù„Ø·Ø±Ù‚ ÙˆÙƒÙ„ Ø§Ù„Ø§Ø­ØªÙ…Ø§Ù„Ø§ØªØŒ Ù‡Ø®ØªØ§Ø±Ùƒ Ø¥Ù†ØªÙ ØªØ§Ù†ÙŠâ€¦ ÙˆÙ‡Ø®ØªØ§Ø±Ùƒ ÙƒÙ„ Ù…Ø±Ø©.</p>
+            <p class="mt-5">Ø¥Ù†ØªÙ Ø­Ø¨ÙŠØ¨ØªÙŠØŒ ÙˆØµØ§Ø­Ø¨ØªÙŠØŒ ÙˆØ£Ø¬Ù…Ù„ Ø¬Ø²Ø¡ ÙÙŠ Ø­ÙƒØ§ÙŠØªÙŠ. â¤ï¸<br>Ø¨Ø­Ø¨Ùƒ ÙŠØ§ Ø´ÙŠØ±ÙŠÙ†â€¦ Ø¨Ø­Ø¨Ùƒ Ø£ÙˆÙŠ.</p>
           </article>
         </div>
         <div class="mt-8 flex items-center justify-between gap-3 border-t border-rose-100 pt-5">
-          <button id="letterPrev" type="button" class="rounded-full border border-rose-200 px-4 py-2 text-sm font-bold text-rose-600 transition hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-40">السابق</button>
-          <div id="letterDots" class="flex gap-1.5" aria-label="صفحات الرسالة"></div>
-          <button id="letterNext" type="button" class="rounded-full bg-rose-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-rose-700 disabled:cursor-not-allowed disabled:opacity-40">التالي</button>
+          <button id="letterPrev" type="button" class="rounded-full border border-rose-200 px-4 py-2 text-sm font-bold text-rose-600 transition hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-40">Ø§Ù„Ø³Ø§Ø¨Ù‚</button>
+          <div id="letterDots" class="flex gap-1.5" aria-label="ØµÙØ­Ø§Øª Ø§Ù„Ø±Ø³Ø§Ù„Ø©"></div>
+          <button id="letterNext" type="button" class="rounded-full bg-rose-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-rose-700 disabled:cursor-not-allowed disabled:opacity-40">Ø§Ù„ØªØ§Ù„ÙŠ</button>
         </div>
       </article>
     </section>
   </main>
 
   <footer class="border-t border-rose-100 px-5 py-8 text-center text-sm text-gray-400">
-    <p>صُنع بكل حب لشيرين ❤️ | <span id="year">2026</span></p>
+    <p>ØµÙÙ†Ø¹ Ø¨ÙƒÙ„ Ø­Ø¨ Ù„Ø´ÙŠØ±ÙŠÙ† â¤ï¸ | <span id="year">2026</span></p>
   </footer>
 
   <script>
@@ -324,6 +374,8 @@
     const currentTime = document.getElementById("currentTime");
     const duration = document.getElementById("duration");
     const daysCount = document.getElementById("daysCount");
+    const anniversaryDate = document.getElementById("anniversaryDate");
+    const anniversaryMessage = document.getElementById("anniversaryMessage");
 
     function formatTime(seconds) {
       if (!Number.isFinite(seconds)) return "0:00";
@@ -335,13 +387,13 @@
     function updateMusicButton(isPlaying) {
       musicToggle.setAttribute("aria-pressed", String(isPlaying));
       musicToggle.innerHTML = isPlaying
-        ? '<span aria-hidden="true">⏸</span> إيقاف'
-        : '<span aria-hidden="true">▶</span> تشغيل';
+        ? '<span aria-hidden="true">â¸</span> Ø¥ÙŠÙ‚Ø§Ù'
+        : '<span aria-hidden="true">â–¶</span> ØªØ´ØºÙŠÙ„';
       playerToggle.setAttribute("aria-pressed", String(isPlaying));
-      playerToggle.setAttribute("aria-label", isPlaying ? "إيقاف الموسيقى" : "تشغيل الموسيقى");
+      playerToggle.setAttribute("aria-label", isPlaying ? "Ø¥ÙŠÙ‚Ø§Ù Ø§Ù„Ù…ÙˆØ³ÙŠÙ‚Ù‰" : "ØªØ´ØºÙŠÙ„ Ø§Ù„Ù…ÙˆØ³ÙŠÙ‚Ù‰");
       playerToggle.innerHTML = isPlaying
-        ? '<span aria-hidden="true">Ⅱ</span>'
-        : '<span aria-hidden="true">▶</span>';
+        ? '<span aria-hidden="true">â…¡</span>'
+        : '<span aria-hidden="true">â–¶</span>';
     }
 
     async function toggleAudio() {
@@ -352,7 +404,7 @@
           spotifyPlayer.classList.remove("hidden");
         } catch {
           updateMusicButton(false);
-          musicToggle.title = "تعذر تشغيل الصوت، تحقق من رابط الملف الصوتي";
+          musicToggle.title = "ØªØ¹Ø°Ø± ØªØ´ØºÙŠÙ„ Ø§Ù„ØµÙˆØªØŒ ØªØ­Ù‚Ù‚ Ù…Ù† Ø±Ø§Ø¨Ø· Ø§Ù„Ù…Ù„Ù Ø§Ù„ØµÙˆØªÙŠ";
         }
       } else {
         audio.pause();
@@ -383,7 +435,7 @@
         updateMusicButton(true);
         spotifyPlayer.classList.remove("hidden");
       } catch {
-        musicToggle.title = "اضغطي في أي مكان بالصفحة لتشغيل الموسيقى";
+        musicToggle.title = "Ø§Ø¶ØºØ·ÙŠ ÙÙŠ Ø£ÙŠ Ù…ÙƒØ§Ù† Ø¨Ø§Ù„ØµÙØ­Ø© Ù„ØªØ´ØºÙŠÙ„ Ø§Ù„Ù…ÙˆØ³ÙŠÙ‚Ù‰";
       }
     }
 
@@ -397,19 +449,19 @@
     const memoryResultText = document.getElementById("memoryResultText");
     const memoryMessages = {
       "first-day": {
-        date: ["بالضبط! 23 أغسطس 2023 كان أول فصل في أجمل حكاية ❤️", ["memory-6.jpeg", "memory-5.jpeg"]],
-        ordinary: ["يمكن اليوم كان عادي للناس، بس بالنسبالي كان بداية كل حاجة حلوة.", ["memory-2.jpeg", "memory-6.jpeg"]],
-        surprise: ["أجمل مفاجأة إن يوم بسيط يغيّر شكل العمر كله.", ["memory-1.jpeg", "memory-8.jpeg"]]
+        date: ["Ø¨Ø§Ù„Ø¶Ø¨Ø·! 23 Ø£ØºØ³Ø·Ø³ 2023 ÙƒØ§Ù† Ø£ÙˆÙ„ ÙØµÙ„ ÙÙŠ Ø£Ø¬Ù…Ù„ Ø­ÙƒØ§ÙŠØ© â¤ï¸", ["memory-6.jpeg", "memory-5.jpeg"]],
+        ordinary: ["ÙŠÙ…ÙƒÙ† Ø§Ù„ÙŠÙˆÙ… ÙƒØ§Ù† Ø¹Ø§Ø¯ÙŠ Ù„Ù„Ù†Ø§Ø³ØŒ Ø¨Ø³ Ø¨Ø§Ù„Ù†Ø³Ø¨Ø§Ù„ÙŠ ÙƒØ§Ù† Ø¨Ø¯Ø§ÙŠØ© ÙƒÙ„ Ø­Ø§Ø¬Ø© Ø­Ù„ÙˆØ©.", ["memory-2.jpeg", "memory-6.jpeg"]],
+        surprise: ["Ø£Ø¬Ù…Ù„ Ù…ÙØ§Ø¬Ø£Ø© Ø¥Ù† ÙŠÙˆÙ… Ø¨Ø³ÙŠØ· ÙŠØºÙŠÙ‘Ø± Ø´ÙƒÙ„ Ø§Ù„Ø¹Ù…Ø± ÙƒÙ„Ù‡.", ["memory-1.jpeg", "memory-8.jpeg"]]
       },
       "first-word": {
-        you: ["المهم إن الكلمة الأولى فتحت باب لحكاية كبيرة أوي.", ["memory-3.jpeg", "memory-7.jpeg"]],
-        her: ["واضح إنك كنتِ عارفة من البداية إنك هتخلي قلبي يبتسم.", ["memory-2.jpeg", "memory-8.jpeg"]],
-        both: ["وده أحلى اختيار… لأن أجمل الكلام دايمًا بيكمل بينا سوا.", ["memory-1.jpeg", "memory-9.jpeg"]]
+        you: ["Ø§Ù„Ù…Ù‡Ù… Ø¥Ù† Ø§Ù„ÙƒÙ„Ù…Ø© Ø§Ù„Ø£ÙˆÙ„Ù‰ ÙØªØ­Øª Ø¨Ø§Ø¨ Ù„Ø­ÙƒØ§ÙŠØ© ÙƒØ¨ÙŠØ±Ø© Ø£ÙˆÙŠ.", ["memory-3.jpeg", "memory-7.jpeg"]],
+        her: ["ÙˆØ§Ø¶Ø­ Ø¥Ù†Ùƒ ÙƒÙ†ØªÙ Ø¹Ø§Ø±ÙØ© Ù…Ù† Ø§Ù„Ø¨Ø¯Ø§ÙŠØ© Ø¥Ù†Ùƒ Ù‡ØªØ®Ù„ÙŠ Ù‚Ù„Ø¨ÙŠ ÙŠØ¨ØªØ³Ù….", ["memory-2.jpeg", "memory-8.jpeg"]],
+        both: ["ÙˆØ¯Ù‡ Ø£Ø­Ù„Ù‰ Ø§Ø®ØªÙŠØ§Ø±â€¦ Ù„Ø£Ù† Ø£Ø¬Ù…Ù„ Ø§Ù„ÙƒÙ„Ø§Ù… Ø¯Ø§ÙŠÙ…Ù‹Ø§ Ø¨ÙŠÙƒÙ…Ù„ Ø¨ÙŠÙ†Ø§ Ø³ÙˆØ§.", ["memory-1.jpeg", "memory-9.jpeg"]]
       },
       "best-outing": {
-        laughs: ["ضحكتك في الخروجة دي لسه من أجمل الحاجات اللي فاكرها.", ["memory-3.jpeg", "memory-5.jpeg", "memory-9.jpeg"]],
-        quiet: ["أجمل الخروجات هي اللي بنحس فيها إن الدنيا كلها اختفت حوالينا.", ["memory-4.jpeg", "memory-6.jpeg", "memory-8.jpeg"]],
-        all: ["إجابة مضمونة… كل خروجة معاكي ليها مكان خاص في قلبي.", ["memory-1.jpeg", "memory-2.jpeg", "memory-3.jpeg", "memory-4.jpeg", "memory-5.jpeg", "memory-6.jpeg", "memory-7.jpeg", "memory-8.jpeg", "memory-9.jpeg"]]
+        laughs: ["Ø¶Ø­ÙƒØªÙƒ ÙÙŠ Ø§Ù„Ø®Ø±ÙˆØ¬Ø© Ø¯ÙŠ Ù„Ø³Ù‡ Ù…Ù† Ø£Ø¬Ù…Ù„ Ø§Ù„Ø­Ø§Ø¬Ø§Øª Ø§Ù„Ù„ÙŠ ÙØ§ÙƒØ±Ù‡Ø§.", ["memory-3.jpeg", "memory-5.jpeg", "memory-9.jpeg"]],
+        quiet: ["Ø£Ø¬Ù…Ù„ Ø§Ù„Ø®Ø±ÙˆØ¬Ø§Øª Ù‡ÙŠ Ø§Ù„Ù„ÙŠ Ø¨Ù†Ø­Ø³ ÙÙŠÙ‡Ø§ Ø¥Ù† Ø§Ù„Ø¯Ù†ÙŠØ§ ÙƒÙ„Ù‡Ø§ Ø§Ø®ØªÙØª Ø­ÙˆØ§Ù„ÙŠÙ†Ø§.", ["memory-4.jpeg", "memory-6.jpeg", "memory-8.jpeg"]],
+        all: ["Ø¥Ø¬Ø§Ø¨Ø© Ù…Ø¶Ù…ÙˆÙ†Ø©â€¦ ÙƒÙ„ Ø®Ø±ÙˆØ¬Ø© Ù…Ø¹Ø§ÙƒÙŠ Ù„ÙŠÙ‡Ø§ Ù…ÙƒØ§Ù† Ø®Ø§Øµ ÙÙŠ Ù‚Ù„Ø¨ÙŠ.", ["memory-1.jpeg", "memory-2.jpeg", "memory-3.jpeg", "memory-4.jpeg", "memory-5.jpeg", "memory-6.jpeg", "memory-7.jpeg", "memory-8.jpeg", "memory-9.jpeg"]]
       }
     };
 
@@ -417,7 +469,7 @@
       button.addEventListener("click", () => {
         const message = memoryMessages[button.dataset.memory][button.dataset.answer];
         memoryResultText.textContent = message[0];
-        memoryResultImages.innerHTML = message[1].map((image) => `<img class="h-full min-w-0 w-full object-cover" src="${image}" alt="صورة من ذكرياتنا" loading="lazy">`).join("");
+        memoryResultImages.innerHTML = message[1].map((image) => `<img class="h-full min-w-0 w-full object-cover" src="${image}" alt="ØµÙˆØ±Ø© Ù…Ù† Ø°ÙƒØ±ÙŠØ§ØªÙ†Ø§" loading="lazy">`).join("");
         memoryResult.classList.remove("hidden");
         requestAnimationFrame(() => {
           const resultTop = memoryResult.getBoundingClientRect().top + window.scrollY - 96;
@@ -436,7 +488,7 @@
       const dot = document.createElement("button");
       dot.type = "button";
       dot.className = "h-2.5 w-2.5 rounded-full bg-rose-200 transition";
-      dot.setAttribute("aria-label", `صفحة الرسالة ${index + 1}`);
+      dot.setAttribute("aria-label", `ØµÙØ­Ø© Ø§Ù„Ø±Ø³Ø§Ù„Ø© ${index + 1}`);
       dot.addEventListener("click", () => showLetterPage(index));
       letterDots.appendChild(dot);
     });
@@ -462,6 +514,50 @@
     const diffDays = Math.max(0, Math.floor((today - startDate) / 86400000));
     daysCount.textContent = new Intl.NumberFormat("ar-EG").format(diffDays);
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    function updateAnniversaryCountdown() {
+      const now = new Date();
+      const next = new Date(now.getFullYear(), 7, 23);
+      if (next <= now) next.setFullYear(next.getFullYear() + 1);
+      const remaining = next - now;
+      document.getElementById("anniversaryDays").textContent = Math.floor(remaining / 86400000);
+      document.getElementById("anniversaryHours").textContent = Math.floor((remaining / 3600000) % 24);
+      document.getElementById("anniversaryMinutes").textContent = Math.floor((remaining / 60000) % 60);
+      anniversaryDate.textContent = `23 Ø£ØºØ³Ø·Ø³ ${next.getFullYear()}`;
+      anniversaryMessage.textContent = "ÙƒÙ„ Ø³Ù†Ø© ÙˆØ­ÙƒØ§ÙŠØªÙ†Ø§ Ø£Ø­Ù„Ù‰";
+    }
+    updateAnniversaryCountdown();
+    setInterval(updateAnniversaryCountdown, 60000);
+
+    const openWhenModal = document.getElementById("openWhenModal");
+    const openWhenTitle = document.getElementById("openWhenTitle");
+    const openWhenMessage = document.getElementById("openWhenMessage");
+    const openWhenIcon = document.getElementById("openWhenIcon");
+    const openWhenClose = document.getElementById("openWhenClose");
+    const openWhenMessages = {
+      miss: ["Ø§ÙØªØ­ÙŠ Ù„Ù…Ø§ ØªØ´ØªØ§Ù‚ÙŠÙ„ÙŠ", "Ø¹Ø§Ø±Ù Ø¥Ù† Ø§Ù„Ø§Ø´ØªÙŠØ§Ù‚ Ø¨ÙŠÙƒÙˆÙ† ØµØ¹Ø¨ØŒ Ø¨Ø³ Ø§ÙØªÙƒØ±ÙŠ Ø¥Ù†Ùƒ Ø¯Ø§ÙŠÙ…Ù‹Ø§ ÙÙŠ Ø¨Ø§Ù„ÙŠ ÙˆÙ‚Ù„Ø¨ÙŠØŒ Ø­ØªÙ‰ ÙˆØ£Ù†Ø§ Ø¨Ø¹ÙŠØ¯ Ø¹Ù†Ùƒ. Ø¨Ø­Ø¨Ùƒ ÙŠØ§ Ø´ÙŠØ±ÙŠÙ† â¤ï¸", "ðŸ’Œ"],
+      sad: ["Ø§ÙØªØ­ÙŠ Ù„Ù…Ø§ ØªÙƒÙˆÙ†ÙŠ Ø²Ø¹Ù„Ø§Ù†Ø©", "Ø®Ø¯ÙŠ Ù†ÙØ³ Ø¹Ù…ÙŠÙ‚ØŒ ÙˆØ§ÙØªÙƒØ±ÙŠ Ø¥Ù† Ø£ÙŠ Ø­Ø§Ø¬Ø© Ù…Ø¶Ø§ÙŠÙ‚Ø§ÙƒÙŠ Ù‡ØªØ¹Ø¯ÙŠ. Ø£Ù†Ø§ Ø¬Ù†Ø¨ÙƒØŒ ÙˆÙ‡ÙØ¶Ù„ Ø¯Ø§ÙŠÙ…Ù‹Ø§ Ø§Ù„Ø´Ø®Øµ Ø§Ù„Ù„ÙŠ ÙŠØ·Ù…Ù†Ùƒ ÙˆÙŠØ³Ù†Ø¯Ùƒ.", "ðŸŒ§ï¸"],
+      smile: ["Ø§ÙØªØ­ÙŠ Ù„Ù…Ø§ ØªØ­ØªØ§Ø¬ÙŠ ØªØ¨ØªØ³Ù…ÙŠ", "Ø§Ø¨ØªØ³Ù…ÙŠ ÙƒØ¯Ù‡ Ø¹Ø´Ø§Ù† Ø¶Ø­ÙƒØªÙƒ Ù…Ù† Ø£Ø¬Ù…Ù„ Ø§Ù„Ø­Ø§Ø¬Ø§Øª Ø§Ù„Ù„ÙŠ Ø­ØµÙ„ØªÙ„ÙŠ. ÙˆØ¨Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø©ØŒ Ø¥Ù†ØªÙ Ø­Ù„ÙˆØ© Ø­ØªÙ‰ ÙˆØ¥Ù†ØªÙ Ø¨ØªÙ‚ÙˆÙ„ÙŠ Ø¥Ù†Ùƒ Ù…Ø´ Ø­Ù„ÙˆØ© ðŸ˜‚â¤ï¸", "ðŸ˜Š"],
+      birthday: ["Ø§ÙØªØ­ÙŠ ÙÙŠ Ø¹ÙŠØ¯ Ù…ÙŠÙ„Ø§Ø¯Ùƒ", "ÙƒÙ„ Ø³Ù†Ø© ÙˆØ¥Ù†ØªÙ Ø£Ø¬Ù…Ù„ ÙˆØ£Ø­Ù† ÙˆØ£ØºÙ„Ù‰ Ø¥Ù†Ø³Ø§Ù†Ø© ÙÙŠ Ø­ÙŠØ§ØªÙŠ. Ø£ØªÙ…Ù†Ù‰ Ø³Ù†ØªÙƒ Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø© ØªØ¨Ù‚Ù‰ Ù…Ù„ÙŠØ§Ù†Ø© ÙØ±Ø­ ÙŠÙ„ÙŠÙ‚ Ø¨Ù‚Ù„Ø¨Ùƒ.", "ðŸŽ‚"],
+      "first-meeting": ["Ø§ÙØªØ­ÙŠ Ù„Ù…Ø§ ØªÙØªÙƒØ±ÙŠ Ø£ÙˆÙ„ Ù…Ù‚Ø§Ø¨Ù„Ø©", "23 Ø£ØºØ³Ø·Ø³ 2023 Ù…Ø´ Ù…Ø¬Ø±Ø¯ ØªØ§Ø±ÙŠØ®ØŒ Ø¯Ù‡ Ø§Ù„ÙŠÙˆÙ… Ø§Ù„Ù„ÙŠ Ø¨Ø¯Ø£Øª ÙÙŠÙ‡ Ø£Ø¬Ù…Ù„ Ø­ÙƒØ§ÙŠØ© ÙÙŠ Ø­ÙŠØ§ØªÙŠ. ÙˆÙ…Ù† ÙŠÙˆÙ…Ù‡Ø§ ÙˆÙƒÙ„ ÙØµÙ„ Ù…Ø¹Ø§ÙƒÙŠ Ø£Ø­Ù„Ù‰ Ù…Ù† Ø§Ù„Ù„ÙŠ Ù‚Ø¨Ù„Ù‡.", "âœ¨"]
+    };
+    document.querySelectorAll("[data-open-when]").forEach((card) => card.addEventListener("click", () => {
+      const message = openWhenMessages[card.dataset.openWhen];
+      openWhenTitle.textContent = message[0];
+      openWhenMessage.textContent = message[1];
+      openWhenIcon.textContent = message[2];
+      openWhenModal.classList.remove("hidden");
+      openWhenModal.classList.add("flex");
+      openWhenClose.focus();
+    }));
+    function closeOpenWhen() {
+      openWhenModal.classList.add("hidden");
+      openWhenModal.classList.remove("flex");
+    }
+    openWhenClose.addEventListener("click", closeOpenWhen);
+    openWhenModal.addEventListener("click", (event) => { if (event.target === openWhenModal) closeOpenWhen(); });
+    document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeOpenWhen(); });
   </script>
 </body>
 </html>
+
