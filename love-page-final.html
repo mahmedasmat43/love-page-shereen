@@ -117,7 +117,7 @@
     </nav>
   </header>
 
-  <audio id="bgMusic" loop preload="none">
+  <audio id="bgMusic" loop preload="auto" autoplay>
     <source src="song-742-942-final.mp3" type="audio/mpeg">
   </audio>
 
@@ -376,6 +376,21 @@
     });
 
     audio.addEventListener("ended", () => updateMusicButton(false));
+
+    async function attemptAutoplay() {
+      try {
+        await audio.play();
+        updateMusicButton(true);
+        spotifyPlayer.classList.remove("hidden");
+      } catch {
+        musicToggle.title = "اضغطي في أي مكان بالصفحة لتشغيل الموسيقى";
+      }
+    }
+
+    document.addEventListener("pointerdown", () => {
+      if (audio.paused) toggleAudio();
+    }, { once: true });
+    attemptAutoplay();
 
     const memoryResult = document.getElementById("memoryResult");
     const memoryResultImages = document.getElementById("memoryResultImages");
